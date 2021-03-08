@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+// import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -6,26 +7,33 @@ import "./styles/main.scss";
 
 import NavigationContainer from "./components/navigation/navigation-container";
 import Home from "./components/pages/home.component";
-import Stats from "./components/pages/stats.component";
-import Teams from "./components/pages/teams.component";
-
-
-
+import PlayerAdd from "./components/pages/playeradd.component";
+import PlayersStats from "./components/pages/playersstats.component";
+import TeamsStats from "./components/pages/teamsstats.component";
+import TeamAdd from "./components/pages/teamadd.component";
+import EditPlayer from "./components/pages/editplayer.component";
+// import Slider from "./helpers/slider";
+import Icons from "./helpers/icons";
 
 class App extends Component {
   render() {
     return (
       <div className="container">
-      <Router>
-        <div> <NavigationContainer/> </div>
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path ="/Teams/:id" component={Teams} />
-          <Route path="/Stats" component={Stats} />
-        </Switch>
-        
-      </Router>
-    </div>
+        <Router>
+          <div>
+            {" "}
+            <NavigationContainer />{" "}
+          </div>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/playersstats/" component={PlayersStats} />
+            <Route path="/teamsstats/" component={TeamsStats} />
+            <Route path="/playeradd/" component={PlayerAdd} />
+            <Route path="/teamadd/" component={TeamAdd} />
+            <Route path="/editplayer/:id/" component={EditPlayer} />
+          </Switch>
+        </Router>
+      </div>
     );
   }
 }

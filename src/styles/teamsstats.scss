@@ -1,0 +1,9 @@
+.team-stats-container {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+
+  .team-stats-title {
+    width: 100vw;
+  }
+}
