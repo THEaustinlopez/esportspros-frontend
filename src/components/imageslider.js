@@ -29,6 +29,7 @@ const ImageSlider = ({ slides }) => {
             <div
               className={index === current ? "slide active" : "slide"}
               key={index.image}
+              status={index.status}
             >
               {index === current && (
                 <img src={slide.image} alt="logos" className="sliderimage" />

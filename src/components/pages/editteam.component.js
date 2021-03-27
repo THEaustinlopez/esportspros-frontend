@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export default class TeamAdd extends Component {
+export default class EditTeam extends Component {
   constructor(props) {
     super(props);
 
@@ -62,15 +62,7 @@ export default class TeamAdd extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    console.log("Form Submitted");
-    console.log(`Team EP Rank: ${this.state.team_ep_rank}`);
-    console.log(`Team League Rank: ${this.state.team_league_rank}`);
-    console.log(`Team name: ${this.state.team_name}`);
-    console.log(`Team Wins: ${this.state.team_win}`);
-    console.log(`Team Losses: ${this.state.team_loss}`);
-    console.log(`Team Streak: ${this.state.team_streak}`);
-
-    const newTeam = {
+    const updatedTeamStats = {
       team_ep_rank: this.state.team_ep_rank,
       team_league_rank: this.state.team_league_rank,
       team_name: this.state.team_name,
@@ -80,23 +72,37 @@ export default class TeamAdd extends Component {
     };
 
     axios
-      .post("http://localhost:4000/Teams/add", newTeam)
+      .post(
+        "http://localhost:4000/Team/update/" + this.props.match.params.id,
+        updatedTeamStats
+      )
       .then((res) => console.log(res.data));
 
-    this.setState({
-      team_ep_rank: "",
-      team_league_rank: "",
-      team_name: "",
-      team_win: "",
-      team_loss: "",
-      team_streak: "",
-    });
+    this.props.history.push("/teamsstats");
   }
 
+  componentDidMount() {
+    axios
+      .get("http://localhost:4000/Teams/" + this.props.match.params.id)
+      .then((response) => {
+        // console.log(response);
+        this.setState({
+          team_ep_rank: response.data.team_ep_rank,
+          team_league_rank: response.data.team_league_rank,
+          team_name: response.data.team_name,
+          team_win: response.data.team_win,
+          team_loss: response.data.team_loss,
+          team_streak: response.data.team_streak,
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
   render() {
     return (
-      <div className="teamadd-container">
-        <h3>Add New Team</h3>
+      <div className="edit-team-container">
+        <h3>Update Team Information</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <label>EP Rank</label>
@@ -150,7 +156,7 @@ export default class TeamAdd extends Component {
             <div className="form-group">
               <input
                 type="submit"
-                value="Add Team"
+                value="Update Team"
                 className="btn btn-primary"
               />
             </div>

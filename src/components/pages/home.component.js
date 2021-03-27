@@ -7,7 +7,7 @@ export default class Home extends Component {
     return (
       <div className="homepage-container">
         <div className="homepage-header">
-          <h1>Featured</h1>
+          <h1>Featured Esports</h1>
         </div>
 
         <ImageSlider slides={SliderData} />

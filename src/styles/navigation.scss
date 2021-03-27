@@ -42,13 +42,13 @@
 
   &:hover {
     border-bottom: 1px solid black;
-    letter-spacing: 1px;
+    letter-spacing: 0.1rem;
   }
 
   .nav-link-active {
     border-bottom: 1px solid black;
     color: grey;
-    padding-bottom: 5px;
+    padding-bottom: 2.5px;
     letter-spacing: 1px;
   }
 }

@@ -1,0 +1,11 @@
+.edit-player-container {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+  }
+}

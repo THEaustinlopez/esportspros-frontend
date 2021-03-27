@@ -8,14 +8,14 @@ import { useTable, useSortBy } from "react-table";
 
 const Teams = (props) => (
   <tr>
-    <td>{props.teams.team_name}</td>
-    <td>{props.teams.team_league_rank}</td>
     <td>{props.teams.team_ep_rank}</td>
+    <td>{props.teams.team_league_rank}</td>
+    <td>{props.teams.team_name}</td>
     <td>{props.teams.team_win}</td>
     <td>{props.teams.team_loss}</td>
     <td>{props.teams.team_streak}</td>
     <td>
-      <Link to={"/edit/" + props.teams._id}>Edit</Link>
+      <Link to={"/editteam/" + props.teams._id}>Edit</Link>
     </td>
   </tr>
 );
@@ -48,9 +48,8 @@ export default class TeamsStats extends Component {
   render() {
     return (
       <div className="team-stats-container">
-        <h3 className="team-stats-title">Team Stats</h3>
-
         <div className="add-team">
+          <h3 className="team-stats-title">Overwatch Team Stats</h3>
           <NavLink to="/teamadd" activeClassName="nav-link-active">
             <FontAwesomeIcon icon={faUsers} />
           </NavLink>
@@ -59,12 +58,13 @@ export default class TeamsStats extends Component {
         <table className="table table-striped" style={{ marginTop: 20 }}>
           <thead>
             <tr>
-              <th>Name</th>
-              <th>League Rank</th>
               <th>EP Rank</th>
+              <th>League Rank</th>
+              <th>Name</th>
               <th>Wins</th>
               <th>Loss</th>
               <th>Steak</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>{this.teamStats()}</tbody>

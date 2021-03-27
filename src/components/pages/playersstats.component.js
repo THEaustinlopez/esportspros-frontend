@@ -9,13 +9,13 @@ import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 
 const Players = (props) => (
   <tr>
+    <td>{props.players.player_ep_rank}</td>
     <td>{props.players.player_name}</td>
     <td>{props.players.player_position}</td>
-    <td>{props.players.player_age}</td>
     <td>{props.players.player_team}</td>
-    <td>{props.players.player_ep_rank}</td>
-    <td>{props.players.player_in_game_rank}</td>
-    <td>{props.players.player_consistency_rating}</td>
+    <td>{props.players.player_elims}</td>
+    <td>{props.players.player_healing}</td>
+    <td>{props.players.player_deaths}</td>
     <td>{props.players.player_risk}</td>
     <td>
       <Link to={"/editplayer/" + props.players._id}>Edit</Link>
@@ -53,29 +53,35 @@ export default class PlayersStats extends Component {
   render() {
     return (
       <div className="players-stats-container">
-        <h3 className="players-stats-title">Player Stats</h3>
-
         <div className="add-player">
+          <h3 className="players-stats-title">Overwatch Player Stats</h3>
           <NavLink to="/Playeradd" activeClassName="nav-link-active">
             <FontAwesomeIcon icon={faUserPlus} />
           </NavLink>
         </div>
 
-        <table className="table table-striped" style={{ marginTop: 20 }}>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Position</th>
-              <th>Age</th>
-              <th>Team</th>
-              <th>EP Rank</th>
-              <th>In Game Rank</th>
-              <th>Consistency</th>
-              <th>Risk</th>
-            </tr>
-          </thead>
-          <tbody>{this.playerStats()}</tbody>
-        </table>
+        <div className="table-container">
+          <table
+            className="table table-striped"
+            style={{ marginTop: 20 }}
+            variant="dark"
+          >
+            <thead>
+              <tr>
+                <th>EP Rank</th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Team</th>
+                <th>Eliminations</th>
+                <th>Healing</th>
+                <th>Deaths</th>
+                <th>Risk</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>{this.playerStats()}</tbody>
+          </table>
+        </div>
       </div>
     );
   }

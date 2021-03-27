@@ -6,27 +6,31 @@ export default class PlayerAdd extends Component {
     super(props);
 
     this.state = {
+      player_ep_rank: "",
       player_name: "",
       player_position: "",
-      player_age: "",
       player_team: "",
-      player_ep_rank: "",
-      player_in_game_rank: "",
-      player_consistency_rating: "",
+      player_elims: "",
+      player_healing: "",
+      player_deaths: "",
       player_risk: "",
     };
 
+    this.onChangePlayerEPRank = this.onChangePlayerEPRank.bind(this);
     this.onChangePlayerName = this.onChangePlayerName.bind(this);
     this.onChangePlayerPosition = this.onChangePlayerPosition.bind(this);
-    this.onChangePlayerAge = this.onChangePlayerAge.bind(this);
     this.onChangePlayerTeam = this.onChangePlayerTeam.bind(this);
-    this.onChangePlayerEPRank = this.onChangePlayerEPRank.bind(this);
-    this.onChangePlayerInGameRank = this.onChangePlayerInGameRank.bind(this);
-    this.onChangePlayerConsistencyRating = this.onChangePlayerConsistencyRating.bind(
-      this
-    );
+    this.onChangePlayerElims = this.onChangePlayerElims.bind(this);
+    this.onChangePlayerHealing = this.onChangePlayerHealing.bind(this);
+    this.onChangePlayerDeaths = this.onChangePlayerDeaths.bind(this);
     this.onChangePlayerRisk = this.onChangePlayerRisk.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  onChangePlayerEPRank(e) {
+    this.setState({
+      player_ep_rank: e.target.value,
+    });
   }
 
   onChangePlayerName(e) {
@@ -41,33 +45,27 @@ export default class PlayerAdd extends Component {
     });
   }
 
-  onChangePlayerAge(e) {
-    this.setState({
-      player_age: e.target.value,
-    });
-  }
-
   onChangePlayerTeam(e) {
     this.setState({
       player_team: e.target.value,
     });
   }
 
-  onChangePlayerEPRank(e) {
+  onChangePlayerElims(e) {
     this.setState({
-      player_ep_rank: e.target.value,
+      player_elims: e.target.value,
     });
   }
 
-  onChangePlayerInGameRank(e) {
+  onChangePlayerHealing(e) {
     this.setState({
-      player_in_game_rank: e.target.value,
+      player_healing: e.target.value,
     });
   }
 
-  onChangePlayerConsistencyRating(e) {
+  onChangePlayerDeaths(e) {
     this.setState({
-      player_consistency_rating: e.target.value,
+      player_deaths: e.target.value,
     });
   }
 
@@ -81,25 +79,23 @@ export default class PlayerAdd extends Component {
     e.preventDefault();
 
     console.log("Form Submitted");
+    console.log(`Player EP Rank: ${this.state.player_ep_rank}`);
     console.log(`Player name: ${this.state.player_name}`);
     console.log(`Player position: ${this.state.player_position}`);
-    console.log(`Player age: ${this.state.player_age}`);
     console.log(`Player team: ${this.state.player_team}`);
-    console.log(`Player EP Rank: ${this.state.player_ep_rank}`);
-    console.log(`Player in game rank: ${this.state.player_in_game_rank}`);
-    console.log(
-      `Player consistency rating: ${this.state.player_consistency_rating}`
-    );
+    console.log(`Player elims: ${this.state.player_elims}`);
+    console.log(`Player in game rank: ${this.state.player_healing}`);
+    console.log(`Player consistency rating: ${this.state.player_deaths}`);
     console.log(`Player risk: ${this.state.player_risk}`);
 
     const newPlayer = {
+      player_ep_rank: this.state.player_ep_rank,
       player_name: this.state.player_name,
       player_position: this.state.player_position,
-      player_age: this.state.player_age,
       player_team: this.state.player_team,
-      player_EP_Rank: this.state.player_ep_rank,
-      player_in_game_rank: this.state.player_in_game_rank,
-      player_consistency_rating: this.state.player_consistency_rating,
+      player_elims: this.state.player_elims,
+      player_healing: this.state.player_healing,
+      player_deaths: this.state.player_deaths,
       player_risk: this.state.player_risk,
     };
 
@@ -108,13 +104,13 @@ export default class PlayerAdd extends Component {
       .then((res) => console.log(res.data));
 
     this.setState({
+      player_ep_rank: "",
       player_name: "",
       player_position: "",
-      player_age: "",
       player_team: "",
-      player_ep_rank: "",
-      player_in_game_rank: "",
-      player_consistency_rating: "",
+      player_elims: "",
+      player_healing: "",
+      player_deaths: "",
       player_risk: "",
     });
   }
@@ -125,6 +121,14 @@ export default class PlayerAdd extends Component {
         <h3>Add New Player</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
+            <label>Player EP Rank</label>
+            <input
+              type="text"
+              className="player-ep-rank"
+              value={this.state.player_ep_rank}
+              onChange={this.onChangePlayerEPRank}
+            />
+
             <label>Player Name</label>
             <input
               type="text"
@@ -141,14 +145,6 @@ export default class PlayerAdd extends Component {
               onChange={this.onChangePlayerPosition}
             />
 
-            <label>Player Age</label>
-            <input
-              type="text"
-              className="player-age"
-              value={this.state.player_age}
-              onChange={this.onChangePlayerAge}
-            />
-
             <label>Player's Team</label>
             <input
               type="text"
@@ -157,28 +153,28 @@ export default class PlayerAdd extends Component {
               onChange={this.onChangePlayerTeam}
             />
 
-            <label>Player Esports Pros Rank</label>
+            <label>Player Eliminations</label>
             <input
               type="text"
-              className="player-ep-rank"
-              value={this.state.player_ep_rank}
-              onChange={this.onChangePlayerEPRank}
+              className="player-elims"
+              value={this.state.player_elims}
+              onChange={this.onChangePlayerElims}
             />
 
-            <label>Player's In-Game Rank</label>
+            <label>Player Healing</label>
             <input
               type="text"
-              className="player-in-game-rank"
-              value={this.state.player_in_game_rank}
-              onChange={this.onChangePlayerInGameRank}
+              className="player-healing"
+              value={this.state.player_healing}
+              onChange={this.onChangePlayerHealing}
             />
 
-            <label>Player Consistency Rating</label>
+            <label>Player Deaths</label>
             <input
               type="text"
-              className="player-consitency-rating"
-              value={this.state.player_consistency_rating}
-              onChange={this.onChangePlayerConsistencyRating}
+              className="player-deaths"
+              value={this.state.player_deaths}
+              onChange={this.onChangePlayerDeaths}
             />
 
             <label>Player Risk</label>

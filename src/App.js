@@ -13,6 +13,7 @@ import PlayersStats from "./components/pages/playersstats.component";
 import TeamsStats from "./components/pages/teamsstats.component";
 import TeamAdd from "./components/pages/teamadd.component";
 import EditPlayer from "./components/pages/editplayer.component";
+import EditTeam from "./components/pages/editteam.component";
 // import Slider from "./helpers/slider";
 import Icons from "./helpers/icons";
 
@@ -32,6 +33,7 @@ class App extends Component {
             <Route path="/playeradd/" component={PlayerAdd} />
             <Route path="/teamadd/" component={TeamAdd} />
             <Route path="/editplayer/:id/" component={EditPlayer} />
+            <Route path="/editteam/:id" component={EditTeam} />
           </Switch>
         </Router>
       </div>

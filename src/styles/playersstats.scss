@@ -1,9 +1,39 @@
 .players-stats-container {
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
 
-    .players-stats-title {
-        width: 100vw;
+  a {
+    color: #212529;
+    background: linear-gradient(to right, #212529, #212529 50%, lightgray 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 275ms ease;
+    text-decoration: none; // text decorations are clipped in WebKit browsers
+    &:hover {
+      background-position: 0 100%;
     }
+  }
+
+  .players-stats-title {
+    width: 100vw;
+  }
+
+  .add-player {
+    display: flex;
+    // justify-content: right;
+    font-size: xx-large;
+
+    a {
+      background: none;
+      color: #212529;
+    }
+
+    a:hover {
+      color: #fa9c1d;
+    }
+  }
 }
