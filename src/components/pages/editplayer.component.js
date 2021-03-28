@@ -90,7 +90,8 @@ export default class EditPlayer extends Component {
 
     axios
       .post(
-        "http://localhost:4000/Players/update/" + this.props.match.params.id,
+        "https://fantasy-esports-pros-backend.herokuapp.com/players/update/" +
+          this.props.match.params.id,
         updatedPlayerStats
       )
       .then((res) => console.log(res.data));
@@ -100,7 +101,10 @@ export default class EditPlayer extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:4000/Players/" + this.props.match.params.id)
+      .get(
+        "https://fantasy-esports-pros-backend.herokuapp.com/players/" +
+          this.props.match.params.id
+      )
       .then((response) => {
         // console.log(response);
         this.setState({

@@ -73,7 +73,8 @@ export default class EditTeam extends Component {
 
     axios
       .post(
-        "http://localhost:4000/Team/update/" + this.props.match.params.id,
+        "https://fantasy-esports-pros-backend.herokuapp.com/teams/update/" +
+          this.props.match.params.id,
         updatedTeamStats
       )
       .then((res) => console.log(res.data));
@@ -83,7 +84,10 @@ export default class EditTeam extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:4000/Teams/" + this.props.match.params.id)
+      .get(
+        "https://fantasy-esports-pros-backend.herokuapp.com/teams" +
+          this.props.match.params.id
+      )
       .then((response) => {
         // console.log(response);
         this.setState({

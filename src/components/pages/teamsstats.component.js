@@ -29,7 +29,7 @@ export default class TeamsStats extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:4000/Teams/")
+      .get("https://fantasy-esports-pros-backend.herokuapp.com/teams")
       .then((response) => {
         console.log("getTeaems", response);
         this.setState({ teams: response.data });

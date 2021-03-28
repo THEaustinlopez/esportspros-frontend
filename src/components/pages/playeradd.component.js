@@ -100,7 +100,10 @@ export default class PlayerAdd extends Component {
     };
 
     axios
-      .post("http://localhost:4000/Players/add", newPlayer)
+      .post(
+        "https://fantasy-esports-pros-backend.herokuapp.com/players/add",
+        newPlayer
+      )
       .then((res) => console.log(res.data));
 
     this.setState({

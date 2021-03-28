@@ -80,7 +80,10 @@ export default class TeamAdd extends Component {
     };
 
     axios
-      .post("http://localhost:4000/Teams/add", newTeam)
+      .post(
+        "https://fantasy-esports-pros-backend.herokuapp.com/teams/add",
+        newTeam
+      )
       .then((res) => console.log(res.data));
 
     this.setState({

@@ -34,7 +34,7 @@ export default class PlayersStats extends Component {
     // call to api and set state holding response
 
     axios
-      .get("http://localhost:4000/Players/")
+      .get("https://fantasy-esports-pros-backend.herokuapp.com/players")
       .then((response) => {
         this.setState({ players: response.data });
       })
