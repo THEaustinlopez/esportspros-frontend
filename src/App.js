@@ -33,7 +33,7 @@ class App extends Component {
             <Route path="/playeradd/" component={PlayerAdd} />
             <Route path="/teamadd/" component={TeamAdd} />
             <Route path="/editplayer/:id/" component={EditPlayer} />
-            <Route path="/editteam/:id" component={EditTeam} />
+            <Route path="/editteam/:id/" component={EditTeam} />
           </Switch>
         </Router>
       </div>

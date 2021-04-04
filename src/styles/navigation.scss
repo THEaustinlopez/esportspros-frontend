@@ -52,3 +52,27 @@
     letter-spacing: 1px;
   }
 }
+
+@media (max-width: 48em) {
+  .nav-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around !important;
+    height: 15em;
+  }
+
+  .nav-wrapper > #page-title-link {
+    order: 1;
+    padding-bottom: 0em;
+  }
+  .nav-wrapper #home-link {
+    order: 2;
+  }
+  .nav-wrapper #players-link {
+    order: 3;
+  }
+  .nav-wrapper #teams-link {
+    order: 4;
+  }
+}

@@ -60,28 +60,26 @@ export default class PlayersStats extends Component {
           </NavLink>
         </div>
 
-        <div className="table-container">
-          <table
-            className="table table-striped"
-            style={{ marginTop: 20 }}
-            variant="dark"
-          >
-            <thead>
-              <tr>
-                <th>EP Rank</th>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Team</th>
-                <th>Eliminations</th>
-                <th>Healing</th>
-                <th>Deaths</th>
-                <th>Risk</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>{this.playerStats()}</tbody>
-          </table>
-        </div>
+        <table
+          className="table table-striped"
+          style={{ marginTop: 20 }}
+          variant="dark"
+        >
+          <thead>
+            <tr>
+              <th>EP Rank</th>
+              <th>Name</th>
+              <th>Position</th>
+              <th>Team</th>
+              <th>Eliminations</th>
+              <th>Healing</th>
+              <th>Deaths</th>
+              <th>Risk</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>{this.playerStats()}</tbody>
+        </table>
       </div>
     );
   }

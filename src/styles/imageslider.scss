@@ -36,3 +36,17 @@
   cursor: pointer;
   user-select: none;
 }
+
+@media (max-width: 48em) {
+  .slider {
+    height: 40vh;
+  }
+
+  .left-arrow {
+    font-size: 1.5rem;
+  }
+
+  .right-arrow {
+    font-size: 1.5rem;
+  }
+}

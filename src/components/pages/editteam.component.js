@@ -85,7 +85,7 @@ export default class EditTeam extends Component {
   componentDidMount() {
     axios
       .get(
-        "https://fantasy-esports-pros-backend.herokuapp.com/teams" +
+        "https://fantasy-esports-pros-backend.herokuapp.com/teams/" +
           this.props.match.params.id
       )
       .then((response) => {
